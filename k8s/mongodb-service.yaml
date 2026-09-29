@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service
+  namespace: taskflow
+  labels:
+    app: mongodb
+    app.kubernetes.io/part-of: taskflow-devops
+spec:
+  type: ClusterIP
+  ports:
+    - port: 27017
+      targetPort: 27017
+      name: mongodb
+  selector:
+    app: mongodb
